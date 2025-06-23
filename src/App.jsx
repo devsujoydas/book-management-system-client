@@ -1,16 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Navbar from './components/Navbar'
+import { Outlet } from 'react-router'
+import { BookProvider } from './context/BookContext'
+import Footer from './components/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div className='text-3xl font-semibold flex justify-center items-center h-[85vh] '>
-        <h1>Book Management System</h1>
-      </div>
+    <BookProvider>
+      <Navbar/>
+      <main className='min-h-[calc(100vh-100px)] mt-16'>
+        <Outlet/>
+      </main>
+      <Footer/>
+    </BookProvider>
     </>
   )
 }
